@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz Interactif</title>
+</head>
+
+<body>
+    <h1>Bienvenue au Quiz !</h1>
+    <button onclick="lancerQuiz()">Démarrer le Quiz</button>
+    <script>
+        const QUESTIONS = [
+            ["Quelle est la capitale de la France ?", "Paris"],
+            ["Combien de continents y a-t-il ?", "7"], ["Quelle est la plus grande planète du système solaire ?", "Jupiter"],
+            ["Quel est le langage utilisé pour créer des pages web dynamiques ?", "JavaScript"],
+            ["Quelle est la couleur du ciel par temps clair ?", "Bleu"]
+        ];
+        function lancerQuiz() {
+            let bonnesReponses = 0;
+            for (let i = 0; i < QUESTIONS.length; i++) {
+                const question = QUESTIONS[i][0];
+                const reponseCorrecte = QUESTIONS[i][1].toLowerCase();
+                const reponseUtilisateur = prompt(question);
+                if (reponseUtilisateur !== null && reponseUtilisateur.trim().toLowerCase() ===
+                    reponseCorrecte) {
+                    alert("Réponse juste !");
+                    bonnesReponses++;
+                } else {
+                    alert("Réponse fausse !");
+                }
+            }
+            alert("Vous avez répondu correctement à " + bonnesReponses + " question(s) sur " +
+                QUESTIONS.length + ".");
+        }
+    </script>
+</body>
+
+</html>

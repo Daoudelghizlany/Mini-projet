@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire PHP</title>
+    <link rel="stylesheet" href="tp7css.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Formulaire avec PHP</h1>
+
+        <form method="post" action="tp7php.php" method="POST">
+
+            <div class="form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="annee_naissance">Votre année de naissance :</label>
+                <input type="number" id="annee_naissance" name="annee_naissance" min="1900"
+                    max="<?php echo date('Y'); ?>" value="<?php echo date('Y') - 30; ?>" required>
+            </div>
+
+            <div class="form-group">
+                <label for="identifiant">Identifiant :</label>
+                <input type="text" id="identifiant" name="identifiant" placeholder="Donnez un identifiant" required>
+            </div>
+
+            <div class="form-group">
+                <label for="mot_de_passe">Mot de passe :</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Donnez un mot de passe"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="civilite">Sexe:</label>
+                <div class="radio-group">
+                    <input type="radio" id="masculin" name="civilite" value="Masculin" checked>
+                    <label for="masculin">Masculin</label>
+
+                    <input type="radio" id="feminin" name="civilite" value="Féminin">
+                    <label for="feminin">Féminin</label>
+                </div>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="debutant" name="debutant" checked>
+                <label for="debutant">Je débute en PHP</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
