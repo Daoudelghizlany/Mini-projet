@@ -1,0 +1,10 @@
+Poblic Class dvd {
+poblic class void main (StringP[] args){
+scaner d = new scanner(system.in);
+ int a ;
+int b ;
+syso("donner nombre 1 et 2 : ");
+a = d.nextInt();
+b = d.nextInt();
+int d = a - b ;
+syso()
