@@ -1,0 +1,67 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .welcome-message {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #dc3545;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="welcome-message">
+        <h2>Bienvenue, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h2>
+        <p>Vous êtes maintenant connecté à notre système.</p>
+    </div>
+
+    <a href="?logout=1" class="logout-btn">Déconnexion</a>
+
+    <h3 style="margin-top: 30px;">Fonctionnalités:</h3>
+    <ul>
+        <li>Système de session sécurisé</li>
+        <li>Protection contre l'accès non autorisé</li>
+        <li>Déconnexion propre avec destruction de session</li>
+    </ul>
+</body>
+
+</html>
